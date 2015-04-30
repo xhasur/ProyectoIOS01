@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/xhasur/ProyectoIOS01/issues"
   },
-  "homepage": "https://github.com/xhasur/ProyectoIOS01#readme"
+  "homepage": "https://github.com/xhasur/ProyectoIOS01#readme",
+  "dependencies": {
+    "st": "^0.5.3"
+  }
 }
