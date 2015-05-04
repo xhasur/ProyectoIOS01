@@ -4,7 +4,10 @@
   "description": "Proyecto Prueba 01",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npm run build-js",
+    "build-js": "browserify cliente/app.js -o public/app.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +20,11 @@
   },
   "homepage": "https://github.com/xhasur/ProyectoIOS01#readme",
   "dependencies": {
+    "body": "^5.0.0",
+    "course": "0.0.1",
     "st": "^0.5.3",
-    "webrtc2images": "^1.4.4"
+    "webrtc2images": "^1.4.4",
+    "xhr": "^2.0.1"
   },
   "devDependencies": {
     "browserify": "^10.0.0"
