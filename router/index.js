@@ -2,8 +2,9 @@ const path = require('path')
 const course = require('course')
 const st  = require('st')
 const jsonBody = require('body/json')
-
 const router = course()
+
+
 const mount= st({
     path:path.join(__dirname,'..','public'),
     index:'index.html', //defino archivo principal,
