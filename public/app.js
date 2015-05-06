@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-const Webrtc2Images = require('webrtc2images')
+const Webrtc2Images = require('webrtc2images')   //modulo para acceder a la camara //solo funciona en el browser no en el server
 const xhr = require('xhr')
 
 const rtc = new Webrtc2Images({
@@ -26,12 +26,12 @@ record.addEventListener('click',  function (e) {
         xhr({
             uri: '/process',
             method: 'post',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ images: frames })
+            headers: { 'Content-Type': 'application/json' },//llegara un json
+            body: JSON.stringify({ images: frames }) //lque enviaremos los frames
         }, function (err, res, body) {
             if (err) return logError(err)
 
-            console.log(JSON.parse(body))
+            console.log(JSON.parse(body))  //lo  qu devuelve el serer
         })
 //        console.log(frames)
     })

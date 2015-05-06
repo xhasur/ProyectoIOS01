@@ -1,4 +1,4 @@
-const Webrtc2Images = require('webrtc2images')
+const Webrtc2Images = require('webrtc2images')   //modulo para acceder a la camara //solo funciona en el browser no en el server
 const xhr = require('xhr')
 
 const rtc = new Webrtc2Images({
@@ -25,12 +25,12 @@ record.addEventListener('click',  function (e) {
         xhr({
             uri: '/process',
             method: 'post',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ images: frames })
+            headers: { 'Content-Type': 'application/json' },//llegara un json
+            body: JSON.stringify({ images: frames }) //lque enviaremos los frames
         }, function (err, res, body) {
             if (err) return logError(err)
 
-            console.log(JSON.parse(body))
+            console.log(JSON.parse(body))  //lo  qu devuelve el serer
         })
 //        console.log(frames)
     })
