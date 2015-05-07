@@ -2,7 +2,7 @@
 
 const EventEmitter = require('events').EventEmitter  //requerimos la clase EventEmitter del modulo event
 const async = require('async')
-const dataURIBuffer = require('data-uri-to-buffer')
+const dataURIBuffer = require('data-uri-to-buffer')//conversion de imagenes
 const uuid = require('uuid')//fucniona en el server y el browser..se pued eusar con browserify
 const os = require('os') //me da cceso al sistema operativo
 const fs = require('fs')//acceso archivos

@@ -16,11 +16,16 @@ const mount= st({
 
 router.post('/process', function (req, res) {
     //lA peticion la  Modificamos
-    jsonBody(req, res, {limit: 3 * 1024 * 1024 }, function (err, body) {//enviamos 3mb recibimos archivos hasta 3mb
+
+    jsonBody(req, res, { limit: 3 * 1024 * 1024 }, function (err, body) {
         if (err) return fail(err, res)
 
         if (Array.isArray(body.images)) {
             let converter = helper.convertVideo(body.images)
+
+            converter.on('log', function (msg) {
+                console.log(msg)
+            })
 
             converter.on('video', function (video) {
                 res.setHeader('Content-Type', 'application/json')
@@ -31,15 +36,14 @@ router.post('/process', function (req, res) {
             res.statusCode = 500
             res.end(JSON.stringify({ error: 'parameter `images` is required' }))
         }
-
-
-
-         //console.log(body) //objeto como imagenes
+        //console.log(body) //objeto como imagenes
         //cada que tenemos respuesta seteamos header con la respuesta
         //enviamos de lado a lado
         //res.setHeader('Content-Type', 'application/json')
         //res.end(JSON.stringify({ ok: true }))
-})
+    })
+
+
 })
 
 
